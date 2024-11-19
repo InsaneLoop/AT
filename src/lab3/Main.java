@@ -7,7 +7,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         try {
-            // Введення розмірів першого масиву
             System.out.print("Введіть розмір першого масиву: ");
             int size1 = scanner.nextInt();
             if (size1 <= 0) {
@@ -20,7 +19,6 @@ public class Main {
                 array1[i] = scanner.nextInt();
             }
 
-            // Введення розмірів другого масиву
             System.out.print("Введіть розмір другого масиву: ");
             int size2 = scanner.nextInt();
             if (size2 <= 0) {
@@ -33,7 +31,6 @@ public class Main {
                 array2[i] = scanner.nextInt();
             }
 
-            // Знаходження перетину масивів
             Set<Integer> set1 = new HashSet<>();
             for (int num : array1) {
                 set1.add(num);
@@ -48,34 +45,28 @@ public class Main {
 
             System.out.println("Перетин масивів: " + intersection);
 
-            // Перетворення перетину в LinkedList
             LinkedList<Integer> linkedList = new LinkedList<>(intersection);
 
-            // a) Додати елемент на початок списку
             System.out.print("Введіть елемент для додавання на початок списку: ");
             int addFirst = scanner.nextInt();
             linkedList.addFirst(addFirst);
 
-            // б) Додати елемент у кінець списку
             System.out.print("Введіть елемент для додавання в кінець списку: ");
             int addLast = scanner.nextInt();
             linkedList.addLast(addLast);
 
-            // в) Видалити перший елемент зі списку
             if (!linkedList.isEmpty()) {
                 System.out.println("Видалення першого елемента: " + linkedList.removeFirst());
             } else {
                 System.out.println("Список порожній, нічого видаляти.");
             }
 
-            // г) Видалити останній елемент зі списку
             if (!linkedList.isEmpty()) {
                 System.out.println("Видалення останнього елемента: " + linkedList.removeLast());
             } else {
                 System.out.println("Список порожній, нічого видаляти.");
             }
 
-            // д) Вивести елементи списку в зворотному порядку
             System.out.println("Елементи списку у зворотному порядку:");
             ListIterator<Integer> iterator = linkedList.listIterator(linkedList.size());
             while (iterator.hasPrevious()) {
@@ -83,10 +74,9 @@ public class Main {
             }
             System.out.println();
 
-            // Виклик ClassCastException
             try {
                 Object obj = "Це рядок";
-                Integer num = (Integer) obj; // Викликає ClassCastException
+                Integer num = (Integer) obj;
             } catch (ClassCastException e) {
                 System.out.println("Помилка ClassCastException: Спроба перетворити рядок на ціле число.");
             }
